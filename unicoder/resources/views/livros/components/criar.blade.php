@@ -76,7 +76,7 @@
                         </div>
                         <div class="col-sm-12 col-md-6">
                             <input type="number" class="form-control" placeholder="ISBN" name="isbn"
-                                value="{{ old('isbn') }}" required>
+                                value="{{ old('isbn') }}" minlength="13" maxlength="13" required>
                             @error('isbn')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror

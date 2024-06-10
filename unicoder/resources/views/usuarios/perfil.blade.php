@@ -24,14 +24,14 @@
             <div class="col-sm-12 col-md-6 col-lg-6">
                 <p><strong>CPF:</strong></p>
                 <p class="border-bottom border-secondary p-2">
-                    {{ $usuario->locatario->cpf ? maskCPF($usuario->locatario->cpf) : 'Não informado' }}</p>
+                    {{ $usuario->locatario->cpf ?? 'Não cadastrado' }}</p>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-12 col-md-6 col-lg-6">
                 <p><strong>Telefone:</strong></p>
                 <p class="border-bottom border-secondary p-2">
-                    {{ $usuario->locatario->telefone ? maskTelefone($usuario->locatario->telefone) : 'Não informado' }}</p>
+                    {{ $usuario->locatario->telefone ?? 'Não cadastrado' }}</p>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6">
                 <p><strong>Email:</strong></p>
@@ -49,7 +49,7 @@
                         <strong>{{ $emprestimo->data_emprestimo }}</strong>
                     </div>
                     <div>
-                        <a href="{{ route('emprestimos.detalhes', $emprestimo->id) }}"><i class="fas fa-circle-info"></i>
+                        <a href="{{ route('emprestimos.show', $emprestimo->id) }}"><i class="fas fa-circle-info"></i>
                             Detalhes</a>
                     </div>
                 </div>

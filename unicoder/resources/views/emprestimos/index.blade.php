@@ -19,7 +19,7 @@
     </div>
     <div class="tabela table-responsive">
         <div>
-            <form action="{{ route('emprestimos.pesquisar') }}" method="POST">
+            <form action="" method="POST">
                 @csrf
                 <div class="row">
                     <div class="col-11">
@@ -50,7 +50,7 @@
                         <td>{{ $emprestimo->data_emprestimo }}</td>
                         <td>{{ $emprestimo->data_devolucao }}</td>
                         <td>
-                            <a href="{{ route('emprestimos.detalhes', $emprestimo->id) }}" class="btn btn-sm"><i
+                            <a href="{{ route('emprestimos.show', $emprestimo->id) }}" class="btn btn-sm"><i
                                     class="fas fa-bars"></i></a>
                         </td>
                     </tr>

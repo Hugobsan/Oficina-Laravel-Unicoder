@@ -10,7 +10,7 @@
     </div>
     <div class="tabela table-responsive">
         <div>
-            <form action="{{ route('usuarios.pesquisar') }}" method="POST">
+            <form action="" method="POST">
                 @csrf
                 <div class="row">
                     <div class="col-11">
@@ -36,7 +36,7 @@
                         <td scope="row">{{ $usuario->name }}</td>
                         <td>{{ $usuario->email }}</td>
                         <td>
-                            <a href="{{ route('usuarios.perfil', $usuario->id) }}" class="btn btn-sm"><i
+                            <a href="{{ route('users.show', $usuario->id) }}" class="btn btn-sm"><i
                                     class="fas fa-bars"></i></a>
                         </td>
                     </tr>

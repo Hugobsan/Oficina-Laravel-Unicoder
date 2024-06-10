@@ -17,7 +17,7 @@
             @include('livros.components.criar')
         @endif
     </div>
-    <div class="tabela table-responsive">
+    <div class="tabela table-responsive" style="overflow-x:hidden">
         <div>
             <form action="#" method="POST">
                 @csrf

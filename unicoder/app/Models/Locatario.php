@@ -22,9 +22,19 @@ class Locatario extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function emprestimos()
+    {
+        return $this->hasMany(Emprestimo::class);
+    }
+
     public function getCpfAttribute()
     {
-        return substr($this->attributes['cpf'], 0, 3) . '.' . substr($this->attributes['cpf'], 3, 3) . '.' . substr($this->attributes['cpf'], 6, 3) . '-' . substr($this->attributes['cpf'], 9, 2);
+        $cpf = $this->attributes['cpf'] ?? '';
+
+        if (strlen($cpf) != 11) {
+            return Null;
+        }
+        return substr($cpf, 0, 3) . '.' . substr($cpf, 3, 3) . '.' . substr($cpf, 6, 3) . '-' . substr($cpf, 9, 2);
     }
 
     public function setCpfAttribute($value)
@@ -35,6 +45,9 @@ class Locatario extends Model
     
     public function getTelefoneAttribute()
     {
+        if (empty($this->attributes['telefone'])) {
+            return Null;
+        }
         return sprintf('(%s) %s %s-%s',
             substr($this->attributes['telefone'], 0, 2),
             substr($this->attributes['telefone'], 2, 1),

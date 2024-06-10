@@ -7,7 +7,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('emprestimos.criar') }}" method="POST">
+                <form action="{{ route('emprestimos.store') }}" method="POST">
                     @csrf
                     <div class="row my-3">
                         <div class="col-sm-12 col-md-12">

@@ -21,11 +21,11 @@
         <div class="row">
             <div class="col-sm-12 col-md-6 col-lg-4">
                 <p><strong>Autor:</strong></p>
-                <p class="border-bottom border-secondary p-2">{{ $livro->autor->nome }}</p>
+                <p class="border-bottom border-secondary p-2">{{ $livro->autor }}</p>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-4">
                 <p><strong>Gênero:</strong></p>
-                <p class="border-bottom border-secondary p-2">{{ $livro->genero->nome }}</p>
+                <p class="border-bottom border-secondary p-2">{{ $livro->genero }}</p>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-4">
                 <p><strong>Volume:</strong></p>
@@ -39,7 +39,7 @@
             </div>
             <div class="col-sm-12 col-md-6 col-lg-4">
                 <p><strong>Nº de Pág.:</strong></p>
-                <p class="border-bottom border-secondary p-2">{{ $livro->numero_paginas }}</p>
+                <p class="border-bottom border-secondary p-2">{{ $livro->paginas }}</p>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-4">
                 <p><strong>Quant. De Exemplares:</strong></p>
@@ -67,7 +67,7 @@
                         <strong>{{ $emprestimo->data_emprestimo }}</strong>
                     </div>
                     <div>
-                        <a href="{{ route('emprestimos.detalhes', $emprestimo->id) }}"><i class="fas fa-circle-info"></i>
+                        <a href="{{ route('emprestimos.show', $emprestimo->id) }}"><i class="fas fa-circle-info"></i>
                             Detalhes</a>
                     </div>
                 </div>

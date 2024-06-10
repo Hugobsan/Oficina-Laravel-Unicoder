@@ -7,54 +7,78 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('livros.atualizar', $livro->id) }}" method="POST">
+                <form action="{{ route('livros.update', $livro->id) }}" method="POST">
                     @csrf
+                    @method('PUT')
                     <input type="text" required maxlength="255" class="form-control" placeholder="Título do livro"
-                        name="titulo" value="{{$livro->titulo}}">
+                        name="titulo" value="{{ old('titulo', $livro->titulo) }}">
+                    @error('titulo')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
                     <div class="row my-3">
                         <div class="col-sm-12 col-md-6">
-                            <input type="text" required maxlength="255" list="dl-autor" class="form-control" 
-                                placeholder="Nome do autor" name="autor" id="autor" autocomplete="off" value="{{$livro->autor->nome}}">
-                            <datalist id="dl-autor">
-                                @foreach ($autores as $autor)
-                                    <option value="{{ $autor->nome }}"></option>
-                                @endforeach
-                            </datalist>
+                            <input type="text" required maxlength="255" class="form-control"
+                                placeholder="Nome do autor" name="autor" id="autor" autocomplete="off"
+                                value="{{ old('autor', $livro->autor) }}">
+                            @error('autor')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="col-sm-12 col-md-6">
-                            <input type="text" required maxlength="255" list="dl-genero" class="form-control"
-                                placeholder="Gênero" name="genero" id="genero" autocomplete="off" value="{{$livro->genero->nome}}">
-                            <datalist id="dl-genero">
-                                @foreach ($generos as $genero)
-                                    <option value="{{ $genero->nome }}"></option>
-                                @endforeach
-                            </datalist>
+                            <input type="text" required maxlength="255" class="form-control" placeholder="Gênero"
+                                name="genero" id="genero" autocomplete="off"
+                                value="{{ old('genero', $livro->genero) }}">
+                            @error('genero')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                     <div class="row my-3">
                         <div class="col-sm-12 col-md-6">
                             <input type="text" required maxlength="255" class="form-control" placeholder="Editora"
-                                name="editora" value={{$livro->editora}}>
+                                name="editora" value={{ old('editora', $livro->editora) }}>
+                            @error('editora')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="col-sm-12 col-md-6">
-                            <input type="number" required class="form-control" placeholder="Edição" name="edicao" value={{$livro->edicao}}>
+                            <input type="number" required class="form-control" placeholder="Edição" name="edicao"
+                                value={{ old('edicao', $livro->edicao) }}>
+                            @error('edicao')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                     <div class="row my-3">
                         <div class="col-sm-12 col-md-6">
-                            <input type="number" required class="form-control" placeholder="Volume" name="volume" value={{$livro->volume}}>
+                            <input type="number" required class="form-control" placeholder="Volume" name="volume"
+                                value={{ old('volume', $livro->volume) }}>
+                            @error('volume')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="col-sm-12 col-md-6">
-                            <input type="number" required class="form-control" placeholder="Nº de páginas" name="paginas" value={{$livro->numero_paginas}}>
+                            <input type="number" required class="form-control" placeholder="Nº de páginas"
+                                name="paginas" value={{ old('paginas', $livro->paginas) }}>
+                            @error('paginas')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
                     <div class="row my-3">
                         <div class="col-sm-12 col-md-6">
                             <input type="number" class="form-control" placeholder="Quant. de Exemplates"
-                                name="quant-exemplares" value={{$livro->quantidade}} required>
+                                name="quantidade" value={{ old('quantidade', $livro->quantidade) }} required>
+                            @error('quantidade')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="col-sm-12 col-md-6">
-                            <input type="number" class="form-control" placeholder="ISBN" name="isbn" value={{$livro->isbn}} required>
+                            <input type="number" class="form-control" placeholder="ISBN" name="isbn"
+                                value={{ old('isbn', $livro->isbn) }} required>
+                            @error('isbn')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
                     </div>
             </div>

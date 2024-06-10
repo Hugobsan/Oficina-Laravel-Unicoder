@@ -7,28 +7,29 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('usuarios.atualizar', $usuario->id) }}" method="POST">
+                <form action="{{ route('users.update', $usuario->id) }}" method="POST">
                     @csrf
+                    @method('PUT')
                     <div class="row my-3">
                         <div class="col-sm-12 col-md-12">
                             <input type="text" required maxlength="255" class="form-control"
-                                placeholder="Nome do Usuário" name="name" value="{{ $usuario->name }}">
+                                placeholder="Nome do Usuário" name="name" value="{{ old('name', $usuario->name) }}">
                         </div>
                     </div>
                     <div class="row my-3">
                         <div class="col-sm-12 col-md-12">
                             <input type="email" required maxlength="255" class="form-control" placeholder="E-mail"
-                                name="email" value="{{ $usuario->email }}">
+                                name="email" value="{{ old('email',$usuario->email) }}">
                         </div>
                     </div>
                     <div class="row my-3">
                         <div class="col-sm-12 col-md-6">
                             <input type="text" name="cpf" id="cpf" class="form-control" placeholder="CPF"
-                                value="{{ $usuario->locatario->cpf }}">
+                                value="{{ old('cpf', $usuario->locatario->cpf) }}">
                         </div>
                         <div class="col-sm-12 col-md-6">
                             <input type="text" name="telefone" id="telefone" class="form-control"
-                                placeholder="Telefone" value="{{ $usuario->locatario->telefone }}">
+                                placeholder="Telefone" value="{{ old('telefone', $usuario->locatario->telefone) }}">
                         </div>
                     </div>
                     <div class="row my-3">
