@@ -28,12 +28,6 @@
 </head>
 
 <body>
-    @if ($msg = session('message'))
-        <div class="alert position-fixed w-100 alert-{{ $msg->tipo }} alert-dismissible fade show" role="alert">
-            <strong>{{ $msg->titulo }}</strong> {{ $msg->texto }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
     <div class="content row">
         <div class="d-none d-sm-none d-md-flex col-md-6 col-lg-8 col-xl-8 filler-login">
             <div class="brand-filler">

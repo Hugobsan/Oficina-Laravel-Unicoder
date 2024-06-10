@@ -11,6 +11,8 @@ class Locatario extends Model
     use HasFactory;
     use SoftDeletes;
 
+    protected $table = 'locatario';
+
     protected $fillable = [
         'nome', 'cpf', 'telefone', 'user_id'
     ];

@@ -6,7 +6,7 @@
 
 @section('content')
     <h1>Registrar-se</h1>
-    <form action="{{ route('login.novo_registro') }}" method="POST">
+    <form action="{{ route('users.store') }}" method="POST">
         @csrf
         <div class="mb-1">
             <label for="nome" class="form-label">Nome</label>
@@ -35,7 +35,7 @@
         <button type="submit">Registrar</button>
     </form>
     <div class="mb-1">
-        <a class="forgot-password" href="{{ route('login.index') }}">Já possui uma conta? Faça login</a>
+        <a class="forgot-password" href="{{ route('login') }}">Já possui uma conta? Faça login</a>
     </div>
 @endsection
 

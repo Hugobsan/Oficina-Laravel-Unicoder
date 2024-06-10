@@ -18,7 +18,7 @@
                 @if (auth()->user()->admin)
                     <li class="nav-item">
                         <a class="nav-link {{ session()->get('menuAtivo') == 'usuarios' ? 'active' : '' }}"
-                            href="{{ route('usuarios.index') }}">Usuários</a>
+                            href="{{ route('users.index') }}">Usuários</a>
                     </li>
                 @endif
             </ul>
@@ -26,7 +26,7 @@
                 <ul>
                     @if (auth()->user()->locatario)
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('usuarios.perfil', auth()->user()->id) }}">
+                            <a class="nav-link" href="{{ route('users.show', auth()->user()->id) }}">
                                 <div class="user-info">
                                     <div class="user-credentials">
                                         <div class="username">
@@ -46,7 +46,7 @@
                     @endif
 
                     <li class="nav-item btn-exit">
-                        <a class="nav-link" href="{{ route('login.sair') }}"><i
+                        <a class="nav-link" href="{{ route('logout') }}"><i
                                 class="fas fa-right-from-bracket"></i></a>
                     </li>
                 </ul>

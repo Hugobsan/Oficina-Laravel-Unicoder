@@ -44,4 +44,16 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function locatario()
+    {
+        //Relacionamento 1 para 1
+        return $this->hasOne(Locatario::class);
+    }
+
+    public function admin()
+    {
+        //Relacionamento 1 para 1
+        return $this->hasOne(Admin::class);
+    }
 }

@@ -29,12 +29,6 @@
 </head>
 
 <body>
-    @if ($msg = session('message'))
-        <div class="alert position-fixed w-100 alert-{{ $msg->tipo }} alert-dismissible fade show" role="alert">
-            <strong>{{ $msg->titulo }}</strong> {{ $msg->texto }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
     @include('layouts.components.menu')
     @yield('content')
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -19,7 +19,7 @@
     </div>
     <div class="tabela table-responsive">
         <div>
-            <form action="{{ route('livros.pesquisar') }}" method="POST">
+            <form action="#" method="POST">
                 @csrf
                 <div class="row">
                     <div class="col-11">
@@ -32,7 +32,7 @@
                 </div>
             </form>
         </div>
-        <table class="table">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col">Nome</th>
@@ -42,17 +42,21 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($livros as $livro)
+                @forelse ($livros as $livro)
                     <tr>
                         <td scope="row">{{ $livro->titulo }}</td>
-                        <td>{{ $livro->autor->nome }}</td>
-                        <td>{{ $livro->genero->nome }}</td>
+                        <td>{{ $livro->autor }}</td>
+                        <td>{{ $livro->genero }}</td>
                         <td>
-                            <a href="{{ route('livros.detalhes', $livro->id) }}" class="btn btn-sm"><i
+                            <a href="{{ route('livros.show', $livro->id) }}" class="btn btn-sm"><i
                                     class="fas fa-bars"></i></a>
                         </td>
                     </tr>
-                @endforeach
+                @empty
+                    <tr>
+                        <td colspan="4">Nenhum livro encontrado</td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
         <div class="pagination">
@@ -64,7 +68,7 @@
 @section('script')
     <script>
         //Abrindo o modal de cadastro caso haja erro de validação
-        @if (isset($msg) && $msg->tipo == 'danger')
+        @if ($errors->any())
             var myModal = new bootstrap.Modal(document.getElementById('CriarLivro'));
             myModal.show();
         @endif

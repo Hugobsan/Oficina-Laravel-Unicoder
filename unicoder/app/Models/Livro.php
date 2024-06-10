@@ -11,6 +11,8 @@ class Livro extends Model
     use HasFactory;
     use SoftDeletes;
 
+    protected $table = 'livro';
+
     protected $fillable = [
         'titulo', 'volume', 'edicao', 'paginas', 
         'isbn', 'autor', 'genero', 'editora', 'quantidade'

@@ -9,6 +9,8 @@ class Emprestimo extends Model
 {
     use HasFactory;
 
+    protected $table = 'emprestimo';
+
     protected $fillable = [
         'locatario_id',
         'livro_id',

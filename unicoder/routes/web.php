@@ -35,7 +35,7 @@ Route::group(['middleware' => ['auth']], function () {
      * PUT /livros/{id} - LivroController@update - livros.update - Salva a edição de um livro
      * DELETE /livros/{id} - LivroController@destroy - livros.destroy - Remove um livro
      */
-    Route::resource('livros', LivroController::class);
+    Route::resource('livros', LivroController::class)->except(['create']);
 
     Route::resource('emprestimos', EmprestimoController::class);
     Route::get('/emprestimos/{id}/devolver', [EmprestimoController::class, 'devolver'])->name('emprestimos.devolver');
